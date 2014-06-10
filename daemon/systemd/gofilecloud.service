@@ -1,0 +1,15 @@
+[Unit]
+Description=goFileCloud service
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+User=gogs
+Group=gogs
+PIDFile=/var/run/gofilecloud.pid
+ExecStart=/usr/share/gofilecloud/gofilecloud.sh start
+ExecStop=/usr/share/gofilecloud/gofilecloud.sh stop
+
+[Install]
+WantedBy=multi-user.target
